@@ -180,7 +180,7 @@ This project can be integrated with Jenkins to automate the deployment and manag
 
 Here’s a simple example of a `Jenkinsfile` that runs Terraform commands:
 
-'''
+
 pipeline {
     agent any
 
@@ -231,7 +231,7 @@ pipeline {
         }
     }
 }
-'''
+
 
 
 # Explanation of the Jenkinsfile
