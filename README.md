@@ -184,10 +184,14 @@ Here’s a simple example of a `Jenkinsfile` that runs Terraform commands:
 pipeline {
     agent any
 
+    parameters {
+        choice(name: 'ACTION', choices: ['create', 'destroy'], description: 'Select whether to create or destroy resources.')
+    }
+
     environment {
         TF_VAR_instance_type = 't2.micro'            // Set your desired instance type
         TF_VAR_custom_ami_id = 'ami-xxxxxxxx'        // Replace with your custom AMI ID
-        TF_VAR_elb_port = 80                           // Replace with your ELB port
+        TF_VAR_elb_port = 80                          // Replace with your ELB port
         TF_VAR_server_port = 8080                     // Replace with your server port
         // Add additional variables as needed
     }
@@ -201,6 +205,9 @@ pipeline {
         }
 
         stage('Terraform Init') {
+            when {
+                expression { params.ACTION == 'create' }
+            }
             steps {
                 // Run Terraform init
                 sh 'terraform init'
@@ -208,6 +215,9 @@ pipeline {
         }
 
         stage('Terraform Plan') {
+            when {
+                expression { params.ACTION == 'create' }
+            }
             steps {
                 // Run Terraform plan
                 sh 'terraform plan -var-file="terraform.tfvars"'
@@ -215,19 +225,32 @@ pipeline {
         }
 
         stage('Terraform Apply') {
+            when {
+                expression { params.ACTION == 'create' }
+            }
             steps {
                 // Run Terraform apply
                 sh 'terraform apply -var-file="terraform.tfvars" -auto-approve'
+            }
+        }
+
+        stage('Terraform Destroy') {
+            when {
+                expression { params.ACTION == 'destroy' }
+            }
+            steps {
+                // Run Terraform destroy
+                sh 'terraform destroy -var-file="terraform.tfvars" -auto-approve'
             }
         }
     }
 
     post {
         success {
-            echo 'Terraform applied successfully!'
+            echo "${params.ACTION.capitalize()} operation completed successfully!"
         }
         failure {
-            echo 'Terraform failed!'
+            echo "${params.ACTION.capitalize()} operation failed!"
         }
     }
 }
