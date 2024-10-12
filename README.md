@@ -1,4 +1,5 @@
 # Infrastructure as Code (IaC) Project
+
 This repository contains Terraform code for provisioning and managing AWS infrastructure using reusable modules. The project includes configurations for setting up an Elastic Load Balancer (ELB) and an Auto Scaling Group (ASG) with EC2 instances, all organized into separate environments (dev, staging, prod).
 
 
