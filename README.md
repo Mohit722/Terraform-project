@@ -65,7 +65,7 @@ Before you begin, ensure you have the following installed:
 The directory structure of the project is as follows:
 
 
-
+.
 ├── README.md              # Project documentation
 ├── modules/               # Contains reusable Terraform modules
 │   ├── network/           # Network module for creating security groups
@@ -111,7 +111,7 @@ Before running the Terraform code, you need to configure your environment settin
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/Mohit722/Terraform-project.git
 cd your-repo-name
 ```
 
