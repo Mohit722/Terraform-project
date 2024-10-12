@@ -33,12 +33,6 @@ This Terraform project is designed to automate the provisioning and management o
 By utilizing this project, you can efficiently manage your AWS infrastructure, providing a robust foundation for deploying modern applications with scalability and resilience.
 
 
-# Summary of the Additions
-- Project Purpose: This section outlines the primary goals of the project, making it clear what the project is designed to do.
-- Advantages: Highlights the benefits of using the project, explaining how it can improve efficiency and cost-effectiveness.
-- Use Cases: Provides practical examples of how this project can be applied in real-world scenarios, making it easier for users to see its value.
-
-
 
 # Table of Contents
 
@@ -46,7 +40,6 @@ By utilizing this project, you can efficiently manage your AWS infrastructure, p
 - [Prerequisites](#prerequisites)
 - [Directory Structure](#directory-structure)
 - [Configuration](#configuration)
-- [Usage](#usage)
 - [Running Terraform](#running-terraform)
 - [Best Practices](#best-practices)
 - [Contributing](#contributing)
